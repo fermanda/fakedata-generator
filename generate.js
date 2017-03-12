@@ -75,7 +75,7 @@ function generateData(){
 		requestData += '"name":"' + getFullName() + '",';
 		requestData += '"city":"' + getCity() + '",';
 		requestData += '"email":"' + getMailAddress() + '")'
-		if (i < (request-1)) requestData += ',';
+		if (i < (request-1)) requestData += ', ';
 	}
 	requestData += "]</a>";
 
