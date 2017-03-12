@@ -69,33 +69,15 @@ function getMailAddress(){
 
 function generateData(){
 	var request = document.getElementById("req").value;
-	var requestData = "";
+	var requestData = "<a>[";
 	for(i=0; i < request; i++){
 		requestData += '("id":' + (i+1) + ',';
 		requestData += '"name":"' + getFullName() + '",';
 		requestData += '"city":"' + getCity() + '",';
 		requestData += '"email":"' + getMailAddress() + '")'
 		if (i < (request-1)) requestData += ',';
-		console.log("ok");
 	}
-	console.log(requestData);
+	var requestData = "]</a>";
 
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange= function(){
-		if(this.readyState == 4 && this.status == 200){
-			document.getElementById("req").value = "";
-		}
-	}
-	/*
-	xhttp.open("GET", 'generate.php?requestData=' + requestData + '', true);
-	console.log('generate.php?requestData="' + requestData + '"');
-	xhttp.send();
-	*/
-	xhttp.open("POST", "generate.php", true);
-	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	//console.log('generate.php?requestData="' + requestData + '"');
-	xhttp.send("requestData=" + requestData);
-	console.log("requestData=" + requestData);
-
-	document.getElementById("result").innerHTML = '<a href="generatedData.json">You can view your data here</a>';
+	document.getElementById("result").innerHTML = requestData;
 }
