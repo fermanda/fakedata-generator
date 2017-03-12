@@ -77,7 +77,7 @@ function generateData(){
 		requestData += '"email":"' + getMailAddress() + '")'
 		if (i < (request-1)) requestData += ',';
 	}
-	var requestData += "]</a>";
+	requestData += "]</a>";
 
 	document.getElementById("result").innerHTML = requestData;
 }
